@@ -21,6 +21,10 @@
             <Style TargetType="StackLayout">
                 <Setter Property="Padding" Value="5" />
             </Style>
+
+             <Style TargetType="Label">
+                <Setter Property="WidthRequest" Value="70" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
