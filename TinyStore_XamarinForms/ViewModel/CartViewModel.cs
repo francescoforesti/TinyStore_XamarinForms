@@ -18,11 +18,6 @@ namespace TinyStore_XamarinForms.ViewModel
 
         private Realm realm;
 
-        internal void RemoveFromCart(int row)
-        {
-            CartItems.RemoveAt(row);
-        }
-
         public CartViewModel()
         {
             realm = Realm.GetInstance();
@@ -52,6 +47,12 @@ namespace TinyStore_XamarinForms.ViewModel
 				}
 			});
 		}
+
+        public void Clear() 
+        {
+            doInTransaction(((realm, ignored) => (realm as Realm).RemoveAll()), realm, null);
+            CartItems.Clear();
+        }
 
         public bool AddToCart(CartItem newItem)
         {

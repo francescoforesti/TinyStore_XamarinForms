@@ -18,6 +18,7 @@ namespace TinyStore_XamarinForms.View
         {
             // TODO
             DisplayAlert("Your Order has been placed!", "Thank you for ordering", "OK");
+            _viewModel.Clear();
         }
     }
 }
