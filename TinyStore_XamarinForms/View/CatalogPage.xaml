@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="TinyStore_XamarinForms.View.CatalogPage" 
+    BindingContext="{Binding Catalog, Source={StaticResource Locator}}" 
+    Title="TinyStore Catalog">
+    <!-- TODO style -->
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="20">
+                <Label Text="Filter by Category" VerticalOptions="Center" />
+                <Picker ItemsSource="{Binding Categories}" Title="Categories" SelectedIndexChanged="OnCategoryChanged"/>
+            </StackLayout>
+            <ListView x:Name="CatalogList" ItemsSource="{Binding Items}" ItemSelected="OnSelectItem">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" Grid.Column="0" />
+                                <Label Text="{Binding Description}" Grid.Column="1" />
+                                <Label Text="{Binding Price}" Grid.Column="2" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="TinyStore_XamarinForms.View.AboutPage" 
+    Title="About this app">
+    <ContentPage.Resources>
+         <ResourceDictionary>
+
+            <Style TargetType="StackLayout">
+                <Setter Property="Padding" Value="20" />
+            </Style>
+             <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This is a test application I made during a Xamarin Forms (and other stuff) crash course." />
+            <Label Text="Here You'll find :" />
+            <Label Text="- Mvvm and Binding" />
+            <Label Text="- Basic handling of Events and Commands" />
+            <Label Text="- Basic usage of the stock Http client" />
+            <Label Text="- Basic persistence using Realm" />
+            <Label Text="- other stuff like (basic) styling and so on" />
+            <Label Text="Dummy data is provided by getsandbox.com (please use your own sandbox, I only have a basic plan)" />
+            <Label Text="Many Thanks to Alessio Fedi (the teacher)!" Margin="15"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

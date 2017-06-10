@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:TinyStore_XamarinForms"
+    x:Class="TinyStore_XamarinForms.MainPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    Title="TinyStore">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="borderWidth">2</x:Double>
+            <Color x:Key="customColor">Gray</Color>
+            <Style TargetType="Button">
+                <Setter Property="BorderColor" Value="{StaticResource customColor}" />
+                <Setter Property="BorderWidth" Value="{StaticResource borderWidth}" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="Padding" Value="5,5,5,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout HorizontalOptions="Center" >
+        <Label Text="Welcome to TinyStore" VerticalOptions="Center" HorizontalOptions="Center" />
+        
+        <Button Text="Catalog" Command="{Binding GoToCatalog}" />
+        <Button Text="Cart" Command="{Binding GoToCart}" />
+        <Button Text="About" Command="{Binding GoToAbout}" />
+        
+    </StackLayout>
+</ContentPage>

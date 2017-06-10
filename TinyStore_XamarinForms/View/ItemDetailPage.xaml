@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="TinyStore_XamarinForms.View.ItemDetailPage"
+    BindingContext="{Binding Item, Source={StaticResource Locator}}" 
+    Title="Item Detail" >
+
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="borderWidth">1</x:Double>
+            <Color x:Key="customColor">Gray</Color>
+            <Style TargetType="Button">
+                <Setter Property="BorderColor" Value="{StaticResource customColor}" />
+                <Setter Property="BorderWidth" Value="{StaticResource borderWidth}" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="Padding" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+	<ContentPage.Content>
+        <StackLayout>
+            <Image Source="{Binding Item.Image}" WidthRequest="100" HeightRequest="100" />
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Name  " />
+                <Label Text="{Binding Item.Name}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+             <StackLayout Orientation="Horizontal" >
+                <Label Text="Category  " />
+                <Label Text="{Binding Item.Category}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+             <StackLayout Orientation="Horizontal" >
+                <Label Text="Description  " />
+                <Label Text="{Binding Item.Description}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+             <StackLayout Orientation="Horizontal" >
+                <Label Text="Price  " />
+                <Label Text="{Binding Item.Price}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                <Label Text="Quantità" VerticalOptions="Center" />
+                <Entry x:Name="QuantityEntry" Text="{Binding Quantity}" WidthRequest="100" Keyboard="Numeric" />
+                <Button Text="Add to Cart" Clicked="OnAddNewCartItem" HorizontalOptions="EndAndExpand" />                    
+            </StackLayout>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    BindingContext="{Binding Cart, Source={StaticResource Locator}}" 
+    Title="Your Cart" 
+    x:Name="CartPage"
+    x:Class="TinyStore_XamarinForms.View.CartPage">
+
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="borderWidth">1</x:Double>
+            <Color x:Key="customColor">Gray</Color>
+
+            <Style TargetType="Button">
+                <Setter Property="BorderColor" Value="{StaticResource customColor}" />
+                <Setter Property="BorderWidth" Value="{StaticResource borderWidth}" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            
+            <Style TargetType="StackLayout">
+                <Setter Property="Padding" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="CartList" ItemsSource="{Binding CartItems}">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Image" />
+                        <Label Text="Name" />
+                        <Label Text="Quantity" />
+                        <Label Text="Price" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Image}" WidthRequest="25" HeightRequest="25" Grid.Column="0" />
+                                <Label Text="{Binding Name}" Grid.Column="1" />
+                                <Label Text="{Binding Quantity}" Grid.Column="2" />
+                                <Label Text="{Binding Price}" Grid.Column="3" />
+                                <Button Text="X" 
+                                    Command ="{Binding BindingContext.RemoveItem, Source={x:Reference Name=CartPage}}" 
+                                    CommandParameter="{Binding .}"
+                                    Grid.Column="4" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total : "  VerticalOptions="Center"/>
+                <Label Text="{Binding TotalPrice}" VerticalOptions="Center"/>
+                <Button Text="Checkout" Clicked="OnCheckout" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
