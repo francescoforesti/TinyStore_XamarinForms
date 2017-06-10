@@ -35,6 +35,7 @@ namespace TinyStore_XamarinForms.ViewModel
 			{
 				CartItems.Add(ci);
 			}
+            CalcTotalPrice();
 		}
 
 		private void SaveLocally()
