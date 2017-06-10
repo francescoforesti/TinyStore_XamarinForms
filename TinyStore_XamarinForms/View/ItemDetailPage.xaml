@@ -41,7 +41,7 @@
                 <Label Text="{Binding Item.Price}" HorizontalOptions="EndAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
-                <Label Text="Quantità" VerticalOptions="Center" />
+                <Label Text="Quantity" VerticalOptions="Center" />
                 <Entry x:Name="QuantityEntry" Text="{Binding Quantity}" WidthRequest="100" Keyboard="Numeric" />
                 <Button Text="Add to Cart" Clicked="OnAddNewCartItem" HorizontalOptions="EndAndExpand" />                    
             </StackLayout>

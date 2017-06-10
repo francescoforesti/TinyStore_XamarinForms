@@ -25,6 +25,7 @@ namespace TinyStore_XamarinForms.ViewModel
             { 
                 CartItems.Remove(item); 
                 doInTransaction(((o1, o2) => (o1 as Realm).Remove(o2 as CartItem)), realm, item);
+                CalcTotalPrice();
             });
             LoadCart();
 		}
@@ -53,6 +54,7 @@ namespace TinyStore_XamarinForms.ViewModel
         {
             doInTransaction(((realm, ignored) => (realm as Realm).RemoveAll()), realm, null);
             CartItems.Clear();
+            TotalPrice = 0;
         }
 
         public bool AddToCart(CartItem newItem)
